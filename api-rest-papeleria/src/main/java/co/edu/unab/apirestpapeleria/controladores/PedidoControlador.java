@@ -1,10 +1,8 @@
 package co.edu.unab.apirestpapeleria.controladores;
 
-import java.util.List;
-
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,27 +13,19 @@ import org.springframework.web.bind.annotation.RestController;
 import co.edu.unab.apirestpapeleria.Servicios.PedidosServicio;
 import co.edu.unab.apirestpapeleria.modelos.PedidosModelo;
 
-
 @RestController
-@RequestMapping("/pedido")
+@RequestMapping("/pedidos")
 public class PedidoControlador {
     @Autowired
-    
-    PedidosServicio pedidosServicio;
+    PedidosServicio pedidoServicio;
+    @GetMapping("/{id}")
+    public Optional<PedidosModelo> gePedidoById(@PathVariable("id") String id){
+        return pedidoServicio.getPedidoById(id);
 
-    @GetMapping()
-    public List<PedidosModelo> getAllPacientesOrden(){
-        return pedidosServicio.getListPedidosOrden();
     }
 
     @PostMapping()
     public PedidosModelo savePedido(@RequestBody PedidosModelo pedido){
-       return pedidosServicio.guardarPedido(pedido);
-    }
-
-    @DeleteMapping("/{id}")
-    public String deletePedidoById(@PathVariable("id") String id){
-       return pedidosServicio.eliminarPedidoPorId(id);
-        
+        return pedidoServicio.savePedido(pedido);
     }
 }
