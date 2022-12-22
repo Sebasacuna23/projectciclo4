@@ -1,6 +1,7 @@
 package co.edu.unab.apirestpapeleria.controladores;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -27,6 +28,11 @@ public class ProductoController {
     @GetMapping
     public List<ProductoModel> getAllProductos() {
         return productoServicio.getAllProductos();
+    }
+
+    @GetMapping("/{id}")
+    public Optional<ProductoModel> getProducto(@PathVariable("id") String id){
+        return productoServicio.getProducto(id);
     }
 
     @PostMapping

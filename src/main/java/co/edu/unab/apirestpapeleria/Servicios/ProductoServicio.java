@@ -27,6 +27,10 @@ public class ProductoServicio {
         return listaProductos;
     }
 
+    public Optional<ProductoModel> getProducto(String id){
+        return productoRepositorio.findById(id);
+    }
+
     public String deleteProducto(String id) {
         if (productoRepositorio.existsById(id)) {
             Optional<ProductoModel> producto = productoRepositorio.findById(id);
