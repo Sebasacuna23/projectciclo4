@@ -10,7 +10,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class DespachoModel {
-    private String id_cliente;
-    private String hora;
+    private String idProducto;
+    private String nombreProducto;
+    private Long precioProducto;
     
 }

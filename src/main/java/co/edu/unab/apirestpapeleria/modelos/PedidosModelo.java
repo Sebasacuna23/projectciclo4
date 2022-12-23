@@ -21,19 +21,10 @@ public class PedidosModelo {
     private String id;
     private String id_cliente;
     private String nombrecliente;
-    private String apellidocliente;
-    private Long ndocumento;
-    private Object orden;
+    // private String apellidocliente;
     private LocalDate fecha_pedido;
-    private LocalDate fecha_despacho;
-    private Object direccion;
-    private List<DespachoModel> citas;
-
-    //private String id;
-    //private String nombre;
-    //private String apellido;
-    //private Long ndocumento;
-    //private Object orden;
-    //private Object direccion;
+    // private LocalDate fecha_despacho;
+    private String direccion;
+    private List<DespachoModel> productos;
     
 }
